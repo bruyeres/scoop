@@ -1,0 +1,52 @@
+{
+    "version": "2.26.3",
+    "description": "Advanced freeware audio player for Windows",
+    "homepage": "https://www.foobar2000.org",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.foobar2000.org/license"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.foobar2000.org/downloads/foobar2000-x64_v2.26.3.exe#/dl.7z",
+            "hash": "b8a92891013d3af81ee7b51393e85e963dc099e7e4958f8cf392bfa252425183"
+        },
+        "32bit": {
+            "url": "https://www.foobar2000.org/downloads/foobar2000_v2.26.3.exe#/dl.7z",
+            "hash": "11fe2335ab56967de9c95c15afd4c0879a8d4728c5c233dc1c4a58a2af0fec70"
+        },
+        "arm64": {
+            "url": "https://www.foobar2000.org/downloads/foobar2000-arm64ec_v2.26.3.exe#/dl.7z",
+            "hash": "9c7a518b169b34e378c9d526d371f2e7e059f1f65bb7a261d365e370a8065bd1"
+        }
+    },
+    "post_install": [
+        "# Run in portable mode so settings are kept in the persisted 'profile' directory",
+        "New-Item \"$dir\\portable_mode_enabled\" -ItemType File -Force | Out-Null",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\" -Recurse -Force -ErrorAction SilentlyContinue"
+    ],
+    "shortcuts": [
+        [
+            "foobar2000.exe",
+            "foobar2000"
+        ]
+    ],
+    "persist": "profile",
+    "checkver": {
+        "url": "https://www.foobar2000.org/windows",
+        "regex": "foobar2000-x64_v([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.foobar2000.org/downloads/foobar2000-x64_v$version.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.foobar2000.org/downloads/foobar2000_v$version.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.foobar2000.org/downloads/foobar2000-arm64ec_v$version.exe#/dl.7z"
+            }
+        }
+    }
+}

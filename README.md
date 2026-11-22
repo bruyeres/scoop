@@ -8,6 +8,7 @@ Personal [Scoop](https://scoop.sh) bucket.
 
 | Manifest | Description |
 | --- | --- |
+| [foobar2000](bucket/foobar2000.json) | Advanced freeware audio player (portable mode) |
 | [mkbrr](bucket/mkbrr.json) | Fast CLI tool to create, modify and inspect torrent files |
 | [mkbrr-gui](bucket/mkbrr-gui.json) | Desktop GUI for mkbrr |
 
