@@ -1,0 +1,19 @@
+name: Pull Requests
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  pullrequest:
+    name: Pull Requests
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Bucket
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Test Bucket
+        uses: ScoopInstaller/GithubActions@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
