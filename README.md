@@ -15,5 +15,5 @@ Personal [Scoop](https://scoop.sh) bucket.
 
 ```pwsh
 scoop bucket add bruyeres https://github.com/bruyeres/scoop
-scoop install bruyeres/mkbrr
+scoop install bruyeres/<manifestname>
 ```
