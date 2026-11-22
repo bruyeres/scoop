@@ -12,7 +12,7 @@
     "shortcuts": [
         [
             "mkbrr-gui.exe",
-            "mkbrr GUI"
+            "mkbrr-gui"
         ]
     ],
     "checkver": "github",
