@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/bruyeres/scoop/actions/workflows/ci.yml/badge.svg)](https://github.com/bruyeres/scoop/actions/workflows/ci.yml) [![Excavator](https://github.com/bruyeres/scoop/actions/workflows/excavator.yml/badge.svg)](https://github.com/bruyeres/scoop/actions/workflows/excavator.yml)
 
-Personal [Scoop](https://scoop.sh) bucket.
+Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
 
 ## Manifests
 
