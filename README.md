@@ -8,7 +8,7 @@ Template bucket for [Scoop](https://scoop.sh), the Windows command-line installe
 
 | Manifest | Description |
 | --- | --- |
-| [crystaldiskinfo-aoi](bucket/crystaldiskinfo-aoi.json) | HDD/SSD health monitoring utility (Aoi Edition) |
+| [crystaldiskinfo-aoi-edition](bucket/crystaldiskinfo-aoi-edition.json) | HDD/SSD health monitoring utility (Aoi Edition) |
 | [foobar2000](bucket/foobar2000.json) | Advanced freeware audio player (portable mode) |
 | [mkbrr](bucket/mkbrr.json) | Fast CLI tool to create, modify and inspect torrent files |
 | [mkbrr-gui](bucket/mkbrr-gui.json) | Desktop GUI for mkbrr |

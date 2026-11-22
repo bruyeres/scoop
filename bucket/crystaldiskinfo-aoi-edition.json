@@ -1,11 +1,10 @@
 {
     "version": "9.9.5",
-    "description": "HDD/SSD health monitoring utility (Aoi Edition, ad-supported installer)",
+    "description": "CrystalDiskInfo is a HDD/SSD utility software which supports S.M.A.R.T and a part of USB-HDD",
     "homepage": "https://crystalmark.info/en/software/crystaldiskinfo/",
     "license": "MIT",
-    "url": "https://sourceforge.net/projects/crystaldiskinfo/files/9.9.5/CrystalDiskInfo9_9_5AoiAds.exe/download#/dl.exe",
-    "hash": "2aa48152f0abef25326140dbdccff958c7f4e8bee11eba1676bd27d27728b970",
-    "innosetup": true,
+    "url": "https://sourceforge.net/projects/crystaldiskinfo/files/9.9.5/CrystalDiskInfo9_9_5Aoi.zip",
+    "hash": "213994efd69d0e10d7d1d2943d40d9a662a023c092178ed7e373520a4b90be68",
     "architecture": {
         "64bit": {
             "bin": [
@@ -17,7 +16,7 @@
             "shortcuts": [
                 [
                     "DiskInfo64A.exe",
-                    "CrystalDiskInfo Aoi"
+                    "CrystalDiskInfo Aoi Edition"
                 ]
             ]
         },
@@ -31,7 +30,7 @@
             "shortcuts": [
                 [
                     "DiskInfo32A.exe",
-                    "CrystalDiskInfo Aoi"
+                    "CrystalDiskInfo Aoi Edition"
                 ]
             ]
         },
@@ -45,7 +44,7 @@
             "shortcuts": [
                 [
                     "DiskInfoA64A.exe",
-                    "CrystalDiskInfo Aoi"
+                    "CrystalDiskInfo Aoi Edition"
                 ]
             ]
         }
@@ -61,6 +60,6 @@
         "regex": "/([\\d.]+)/"
     },
     "autoupdate": {
-        "url": "https://sourceforge.net/projects/crystaldiskinfo/files/$version/CrystalDiskInfo$underscoreVersionAoiAds.exe/download#/dl.exe"
+        "url": "https://sourceforge.net/projects/crystaldiskinfo/files/$version/CrystalDiskInfo$underscoreVersionAoi.zip"
     }
 }
