@@ -1,0 +1,66 @@
+{
+    "version": "9.9.5",
+    "description": "HDD/SSD health monitoring utility (Aoi Edition, ad-supported installer)",
+    "homepage": "https://crystalmark.info/en/software/crystaldiskinfo/",
+    "license": "MIT",
+    "url": "https://sourceforge.net/projects/crystaldiskinfo/files/9.9.5/CrystalDiskInfo9_9_5AoiAds.exe/download#/dl.exe",
+    "hash": "2aa48152f0abef25326140dbdccff958c7f4e8bee11eba1676bd27d27728b970",
+    "innosetup": true,
+    "architecture": {
+        "64bit": {
+            "bin": [
+                [
+                    "DiskInfo64A.exe",
+                    "DiskInfo-aoi"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "DiskInfo64A.exe",
+                    "CrystalDiskInfo Aoi"
+                ]
+            ]
+        },
+        "32bit": {
+            "bin": [
+                [
+                    "DiskInfo32A.exe",
+                    "DiskInfo-aoi"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "DiskInfo32A.exe",
+                    "CrystalDiskInfo Aoi"
+                ]
+            ]
+        },
+        "arm64": {
+            "bin": [
+                [
+                    "DiskInfoA64A.exe",
+                    "DiskInfo-aoi"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "DiskInfoA64A.exe",
+                    "CrystalDiskInfo Aoi"
+                ]
+            ]
+        }
+    },
+    "pre_install": "if (!(Test-Path \"$persist_dir\\DiskInfo.ini\")) { New-Item \"$dir\\DiskInfo.ini\" -ItemType File -Force | Out-Null }",
+    "persist": [
+        "Smart",
+        "DiskInfo.ini"
+    ],
+    "checkver": {
+        "url": "https://sourceforge.net/projects/crystaldiskinfo/best_release.json",
+        "jsonpath": "$.release.filename",
+        "regex": "/([\\d.]+)/"
+    },
+    "autoupdate": {
+        "url": "https://sourceforge.net/projects/crystaldiskinfo/files/$version/CrystalDiskInfo$underscoreVersionAoiAds.exe/download#/dl.exe"
+    }
+}
