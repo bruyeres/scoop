@@ -21,8 +21,11 @@
         }
     },
     "post_install": [
-        "# Run in portable mode so settings are kept in the persisted 'profile' directory",
         "New-Item \"$dir\\portable_mode_enabled\" -ItemType File -Force | Out-Null",
+        "if (!(Test-Path \"$persist_dir\\profile\\*\") -and (Test-Path \"$env:AppData\\foobar2000-v2\")) {",
+        "    info '[Portable Mode]: Copying user data...'",
+        "    Copy-Item \"$env:AppData\\foobar2000-v2\\*\" -Destination \"$persist_dir\\profile\" -Force -Recurse",
+        "}",
         "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\" -Recurse -Force -ErrorAction SilentlyContinue"
     ],
     "shortcuts": [
