@@ -1,0 +1,67 @@
+{
+    "version": "1.30.2",
+    "description": "Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. It's also open source.",
+    "homepage": "https://zed.dev/",
+    "license": "AGPL-3.0, Apache-2.0, GPL-3.0",
+    "notes": [
+        "Please manually disable Zed's auto-update feature in the settings to prevent the updater from installing the program in unintended locations.",
+        "'Open with Zed' has been added to the Explorer context menu for files, folders and folder backgrounds."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-x86_64.exe",
+            "hash": "ecb48bff3d11716a3c4f708913db274f27173926c0a511b1901934665fa83418"
+        },
+        "arm64": {
+            "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-aarch64.exe",
+            "hash": "42e9a1dd8b86533360e58eb2230f3ef5abb7af068ef82bd2e6050bea8fd42220"
+        }
+    },
+    "installer": {
+        "script": [
+            "Expand-InnoArchive -Path \"$dir\\$fname\" -ExtractDir '{app}'",
+            "Expand-InnoArchive -Path \"$dir\\$fname\" -ExtractDir '{code_GetInstallDir}' -Removal"
+        ]
+    },
+    "post_install": [
+        "$root = if ($global) { [Microsoft.Win32.Registry]::LocalMachine } else { [Microsoft.Win32.Registry]::CurrentUser }",
+        "$exe = \"$dir\\zed.exe\"",
+        "@{ '*' = '%1'; 'Directory' = '%V'; 'Directory\\Background' = '%V' }.GetEnumerator() | ForEach-Object {",
+        "    $key = $root.CreateSubKey(\"Software\\Classes\\$($_.Key)\\shell\\Zed\")",
+        "    $key.SetValue('', 'Open with Zed')",
+        "    $key.SetValue('Icon', $exe)",
+        "    $cmd = $key.CreateSubKey('command')",
+        "    $cmd.SetValue('', \"`\"$exe`\" `\"$($_.Value)`\"\")",
+        "    $cmd.Close()",
+        "    $key.Close()",
+        "}"
+    ],
+    "uninstaller": {
+        "script": [
+            "$root = if ($global) { [Microsoft.Win32.Registry]::LocalMachine } else { [Microsoft.Win32.Registry]::CurrentUser }",
+            "'*', 'Directory', 'Directory\\Background' | ForEach-Object {",
+            "    $root.DeleteSubKeyTree(\"Software\\Classes\\$_\\shell\\Zed\", $false)",
+            "}"
+        ]
+    },
+    "bin": "bin\\zed.exe",
+    "shortcuts": [
+        [
+            "zed.exe",
+            "Zed"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/zed-industries/zed"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/zed-industries/zed/releases/download/v$version/Zed-x86_64.exe"
+            },
+            "arm64": {
+                "url": "https://github.com/zed-industries/zed/releases/download/v$version/Zed-aarch64.exe"
+            }
+        }
+    }
+}
