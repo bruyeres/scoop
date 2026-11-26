@@ -13,6 +13,7 @@ Template bucket for [Scoop](https://scoop.sh), the Windows command-line installe
 | [mkbrr](bucket/mkbrr.json) | Fast CLI tool to create, modify and inspect torrent files |
 | [mkbrr-gui](bucket/mkbrr-gui.json) | Desktop GUI for mkbrr |
 | [osp-tracker](bucket/osp-tracker.json) | Video analysis and modeling tool for physics |
+| [zed](bucket/zed.json) | High-performance code editor (with Explorer context menu entries) |
 
 ## How do I install these manifests?
 
